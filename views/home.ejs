@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do</title>
+    <link rel="stylesheet" href="/css/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+
+  <body >
+    <div class="container">
+      <h1>To-Do</h1>
+      <form action="/add-work" method="post" id="myForm">
+        <div >
+          <legend class="common">Description</legend>
+          <textarea
+            name="description"
+            id="description"
+            rows="2"
+            cols="80"
+            placeholder="What do you need to do?"
+            autocorrect="on"
+            class="desc"
+          ></textarea>
+        </div>
+
+        <div class="parent">
+          <div class="child1">
+            <div class="grandchild1">CATEGORY</div>
+            <div class="grandchild2">DUE DATE</div>
+          </div>
+          <div class="child2">
+            <div class="grandchild">
+              <select name="Category" id="Category" >
+                <option value="default">Choose a category</option>
+                <option value="Personal">Personal</option>
+                <option value="Work">Work</option>
+                <option value="School">School</option>
+                <option value="Cleaning">Cleaning</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="grandchild">
+              <input type="date" id="date" name="date" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button type="submit" id="Add">
+            <i class="fa-solid fa-xl fa-plus" style="color: #ffffff"></i> &nbsp
+            &nbsp ADD TASK
+          </button>
+         
+        </div>
+      </form>
+       <div id="delete">
+            <i class="fa-regular fa-trash-can " ></i>
+            &nbsp &nbsp <div>
+              DELETE TASKS
+            </div>
+          </div>
+      <div class="show">
+        <ul>
+          <% for(let i of add) { %>
+          <li class="work">
+            <input
+              type="checkbox"
+              name="work"
+              class="task-checkbox"
+              id="<%= i._id %>"
+            
+            >
+            <label for="work"> &nbsp<%= i.description %></label>
+
+            <ul>
+              <li class="calendar">
+                <i class="fa-solid fa-calendar-days" style="color: #757575"></i>
+                &nbsp <%= i.date %>
+              </li>
+           <div class="box <%= i.category %>"><span class="text"><%= i.category %></span>
+
+            </ul>
+          </li>
+
+          <% } %>
+        </ul>
+      </div>
+    </div>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
