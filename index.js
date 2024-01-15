@@ -2,9 +2,9 @@ import  express  from 'express';
 import mongoose from "mongoose";
 const app = express();
 const port = 7000;
-
+const dotenv = require("dotenv")
 app.use(express.urlencoded());
-
+dotenv.config()
 
 // use router
 import router from './route/index.js';
