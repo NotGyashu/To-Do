@@ -1,9 +1,8 @@
 // get the library
-import mongoose from "mongoose";
-
+import mongoose from "mongoose"
 // MongoDB Atlas connection string
-const atlasConnection =
-  "mongodb+srv://GyashuRahman:yt26RB6r3DrAzvD4@cluster0.tzsrmro.mongodb.net/?retryWrites=true&w=majority";
+const atlasConnection = process.env.MONGO_KEY;
+  
 
 // connect the database
 mongoose.connect(atlasConnection, {
