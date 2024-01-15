@@ -1,8 +1,10 @@
 // get the library
 import mongoose from "mongoose"
+import dotenv from "dotenv";
+dotenv.config();
 // MongoDB Atlas connection string
-const atlasConnection = process.env.MONGO_KEY;
-  
+const atlasConnection =String(process.env.MONGO_KEY);
+  console.log(atlasConnection);
 
 // connect the database
 mongoose.connect(atlasConnection, {

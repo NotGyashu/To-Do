@@ -2,7 +2,7 @@ import  express  from 'express';
 import mongoose from "mongoose";
 const app = express();
 const port = 7000;
-const dotenv = require("dotenv")
+import dotenv from "dotenv";
 app.use(express.urlencoded());
 dotenv.config()
 
